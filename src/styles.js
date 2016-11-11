@@ -1,7 +1,7 @@
 const elementStylesDefault = {
   'background-color': '#fff',
   'border-radius': '50%',
-  display: 'block',
+  display: 'inline-block',
   position: 'relative',
 };
 
