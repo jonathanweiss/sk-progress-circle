@@ -8,6 +8,7 @@ A Web component (based on [SkateJS](http://skate.js.org/)) that represents a pro
 - [ ] Label Color support
 - [ ] Size support
 - [ ] Variable text content inside the circle
+- [ ] Check ARIA status
 - [ ] Build minified version
 - [ ] Unit Tests
 - [ ] API documentation
@@ -17,4 +18,4 @@ A Web component (based on [SkateJS](http://skate.js.org/)) that represents a pro
 - [ ] Add commitizen
 - [ ] Add greenkeeper
 - [ ] Add coveralls
-
+- [ ] Refactor to a stateless component?

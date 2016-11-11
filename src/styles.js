@@ -32,20 +32,20 @@ const mapToStyleDefinition = (styleMap) => {
 
   return Object.keys(styleMap)
     .map((attribute) => {
-      let attributeValue = styleMap[attribute];
+      let attributestatus = styleMap[attribute];
       if (attributesThatNeedQuotes.indexOf(attribute) !== -1) {
-        attributeValue = `"${attributeValue}"`;
+        attributestatus = `"${attributestatus}"`;
       }
 
-      return `${attribute}: ${attributeValue};\n`;
+      return `${attribute}: ${attributestatus};\n`;
     })
     .join('');
 };
 
-const getGradients = (value, color) => {
+const getGradients = (status, color) => {
   let backgroundDefinition;
 
-  if (value < 50) {
+  if (status < 50) {
     backgroundDefinition = {
       'background-image': `
         linear-gradient(
@@ -55,7 +55,7 @@ const getGradients = (value, color) => {
           transparent
         ),
         linear-gradient(
-          ${90 + (3.6 * value)}deg,
+          ${90 + (3.6 * status)}deg,
           ${color} 50%,
           #ffffff 50%,
           #ffffff
@@ -66,7 +66,7 @@ const getGradients = (value, color) => {
     backgroundDefinition = {
       'background-image': `
         linear-gradient(
-          ${-90 + (3.6 * (value - 50))}deg,
+          ${-90 + (3.6 * (status - 50))}deg,
           ${color} 50%,
           transparent 50%,
           transparent
@@ -84,22 +84,31 @@ const getGradients = (value, color) => {
   return backgroundDefinition;
 };
 
-// @TODO: use a map instead of args?
-const getStyles = (value, width, height, color, backgroundColor, size) => {
+const getStyles = (elem) => {
+  const { backgroundColor, size, status, color, labelColor, labelSize } = elem;
+
   // I could use the object spread operator, but don't want too many Babel plugins only for this usage here:
   // http://babeljs.io/docs/plugins/transform-object-rest-spread/
+
+  // Add gradient to div container and adjust dimensions
   const elementStyles = Object.assign({}, elementStylesDefault,
-    getGradients(value, color), {
+    getGradients(status, color), {
       color,
       width: `${size}px`,
       height: `${size}px`,
     });
+
+  // Adjust dimensions and background-color of the ::after pseudo-element
   const afterElementStyles = Object.assign({}, afterElementStylesDefault, {
     'background-color': backgroundColor,
     height: `${size}px`,
     width: `${size}px`,
   });
+
+  // Adjust the dimensions of the inner element based on the size of the progress circle
   const spanStyles = Object.assign({}, spanStylesDefault, {
+    color: `${labelColor}`,
+    'font-size': `${labelSize}px`,
     height: `${0.6 * size}px`,
     'line-height': `${0.6 * size}px`,
     'margin-left': `${0.2 * size}px`,
@@ -117,6 +126,6 @@ const getStyles = (value, width, height, color, backgroundColor, size) => {
 };
 
 export {
-  getStyles,
-  getGradients,
+  getStyles, // eslint-disable-line
+  // @TODO: expose more functions to make testing easier
 };

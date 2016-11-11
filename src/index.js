@@ -20,13 +20,9 @@ const Progress = define('sk-progress', class Progress extends Component {
         attribute: true,
         default: 'green',
       }),
-      backgroundcolor: prop.string({
+      backgroundColor: prop.string({
         attribute: true,
         default: '#36474f',
-      }),
-      endless: prop.boolean({
-        attribute: true,
-        default: false,
       }),
       label: prop.string({
         attribute: true,
@@ -36,23 +32,30 @@ const Progress = define('sk-progress', class Progress extends Component {
         attribute: true,
         default: 100,
       }),
+      labelColor: prop.string({
+        attribute: true,
+        default: '#111111',
+      }),
+      labelSize: prop.number({
+        attribute: true,
+        default: 16,
+      }),
     };
   }
 
   static render(elem) {
-    const { width, height, color, backgroundcolor, size } = elem;
-    const value = elem.status;
+    const { status, label } = elem;
 
     emit(elem, 'change', {
       detail: {
-        data: value,
+        data: status,
       },
     });
 
     return (
-      <div className={`progress is-${elem.color} state-${value}`}>
-        <style>{getStyles(value, width, height, color, backgroundcolor, size)}</style>
-        <span>{Progress.displayLabelContent(value, elem.label)}</span>
+      <div className="progress">
+        <style>{getStyles(elem)}</style>
+        <span>{Progress.displayLabelContent(status, label)}</span>
       </div>
     );
   }
