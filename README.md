@@ -4,10 +4,10 @@ A Web component (based on [SkateJS](http://skate.js.org/)) that represents a pro
 
 ## Todo
 
-- [ ] Color support
-- [ ] Label Color support
-- [ ] Size support
-- [ ] Variable text content inside the circle
+- [x] Color support
+- [x] Label Color support
+- [x] Size support
+- [x] Variable text content inside the circle
 - [ ] Check ARIA status
 - [ ] Build minified version
 - [ ] Unit Tests
