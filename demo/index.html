@@ -9,7 +9,7 @@
 
   <body>
       <h1>ProgressCircle</h1>
-      <h2>Without attributes</h2>
+      <h2>Without attributes (default)</h2>
       <sk-progress></sk-progress>
 
       <h2>With status</h2>
@@ -20,6 +20,12 @@
 
       <h2>With custom size and label options</h2>
       <sk-progress status="67" size="400" label="Progress: %s percent" label-size="25" label-color="darkblue"></sk-progress>
+
+      <h2>Mini</h2>
+      <sk-progress size="10" status="100" label=""></sk-progress>
+      <sk-progress size="10" status="50" label=""></sk-progress>
+      <sk-progress size="10" status="25" label=""></sk-progress>
+      <sk-progress size="10" status="0" label=""></sk-progress>
 
       <h2>ARIA test</h2>
       <sk-progress id="aria-test"></sk-progress>
