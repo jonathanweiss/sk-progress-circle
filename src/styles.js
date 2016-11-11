@@ -41,7 +41,7 @@ const mapToStyleDefinition = (styleMap) => {
   const attributesThatNeedQuotes = ['content'];
 
   return Object.keys(styleMap)
-    .map(attribute => {
+    .map((attribute) => {
       let attributeValue = styleMap[attribute];
       if (attributesThatNeedQuotes.indexOf(attribute) !== -1) {
         attributeValue = `"${attributeValue}"`;
@@ -94,12 +94,15 @@ const getGradients = (value, color) => {
   return backgroundDefinition;
 };
 
-const getStyles = (value, width, height, color, backgroundColor) => {
+// @TODO: use a map instead of args?
+const getStyles = (value, width, height, color, backgroundColor, size) => {
   // I could use the object spread operator, but don't want too many Babel plugins only for this usage here:
   // http://babeljs.io/docs/plugins/transform-object-rest-spread/
-  const elementStyles = Object.assign({}, elementStylesDefault, getGradients(value, color));
-  const afterElementStyles = Object.assign({}, afterElementStylesDefault, backgroundColor);
+  const elementStyles = Object.assign({}, elementStylesDefault, getGradients(value, color), { color, size });
+  const afterElementStyles = Object.assign({}, afterElementStylesDefault, { 'background-color': backgroundColor, size });
   const spanStyles = Object.assign({}, spanStylesDefault);
+
+  console.warn(afterElementStyles);
 
   const styles = `
     .progress { ${mapToStyleDefinition(elementStyles)} }
@@ -112,5 +115,5 @@ const getStyles = (value, width, height, color, backgroundColor) => {
 
 export {
   getStyles,
-  getGradients
+  getGradients,
 };
