@@ -1,30 +1,29 @@
 const elementStylesDefault = {
-  position: 'relative',
-  display: 'block',
-  'border-radius': '50%',
   'background-color': '#fff',
+  'border-radius': '50%',
+  display: 'block',
+  position: 'relative',
 };
 
 const afterElementStylesDefault = {
-  position: 'absolute',
-  left: 0,
-  top: 0,
-  opacity: 0.1,
   'border-radius': '50%',
-  display: 'block',
   content: ' ',
-  'background-color': '#36474f',
+  display: 'block',
+  left: 0,
+  opacity: 0.1,
+  position: 'absolute',
+  top: 0,
   'z-index': 1,
 };
 
 const spanStylesDefault = {
-  position: 'absolute',
-  left: 0,
-  top: 0,
   'background-color': '#fff',
   'border-radius': '50%',
-  'text-align': 'center',
   'font-size': '1rem',
+  left: 0,
+  position: 'absolute',
+  top: 0,
+  'text-align': 'center',
   'z-index': '2',
 };
 
@@ -97,15 +96,15 @@ const getStyles = (value, width, height, color, backgroundColor, size) => {
     });
   const afterElementStyles = Object.assign({}, afterElementStylesDefault, {
     'background-color': backgroundColor,
-    width: `${size}px`,
     height: `${size}px`,
+    width: `${size}px`,
   });
   const spanStyles = Object.assign({}, spanStylesDefault, {
-    width: `${0.6 * size}px`,
     height: `${0.6 * size}px`,
     'line-height': `${0.6 * size}px`,
     'margin-left': `${0.2 * size}px`,
     'margin-top': `${0.2 * size}px`,
+    width: `${0.6 * size}px`,
   });
 
   const styles = `
