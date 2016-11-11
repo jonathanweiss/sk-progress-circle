@@ -1,24 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ProgressCircle</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProgressCircle</title>
   </head>
   <body>
-    <h1>ProgressCircle</h1>
-    <h2>Without attributes</h2>
-    <sk-progress></sk-progress>
+  <h1>ProgressCircle</h1>
+  <h2>Without attributes</h2>
+  <sk-progress></sk-progress>
 
-    <h2>With status</h2>
-    <sk-progress status="21"></sk-progress>
+  <h2>With status</h2>
+  <sk-progress status="21"></sk-progress>
 
-    <h2>With status and background-color</h2>
-    <sk-progress status="58" color="red" backgroundcolor="orange"></sk-progress>
+  <h2>With status and background-color</h2>
+  <sk-progress status="58" color="red" backgroundcolor="orange"></sk-progress>
 
-    <h2>With custom size and label options</h2>
-    <sk-progress status="67" size="400" label="Progress: %s percent" label-size="25" label-color="darkblue"></sk-progress>
+  <h2>With custom size and label options</h2>
+  <sk-progress status="67" size="400" label="Progress: %s percent" label-size="25" label-color="darkblue"></sk-progress>
 
-    <script src="bundle.js"></script>
+  <h2>ARIA test</h2>
+  <sk-progress id="aria-test"></sk-progress>
+
+  <script src="bundle.js"></script>
+  <script type="text/javascript">
+    setInterval(() => {
+      const $node = document.getElementById('aria-test');
+      $node.status = Math.round(Math.random() * 100);
+    }, 3000);
+  </script>
   </body>
 </html>
