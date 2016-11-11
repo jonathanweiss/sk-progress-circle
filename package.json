@@ -21,8 +21,6 @@
   },
   "homepage": "https://github.com/jonathanweiss/sk-progress-circle#readme",
   "dependencies": {
-    "install": "^0.8.2",
-    "npm": "^3.10.9",
     "skatejs": "^4.0.6",
     "skatejs-web-components": "^3.0.0"
   },
@@ -35,7 +33,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-runtime": "^6.18.0",
     "copy-webpack-plugin": "^4.0.0",
-    "eslint": "^3.9.1",
+    "eslint": "^3.10.0",
     "eslint-config-ak-base": "^4.0.6",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
