@@ -1077,7 +1077,11 @@ const styles = `
     background-image: linear-gradient(90deg, #cf1102 50%, transparent 50%, transparent), linear-gradient(270deg, #cf1102 50%, #fff 50%, #fff); }
 `;
 
-const Progress = define('sk-progress', class extends Component {
+const Progress = define('sk-progress', class Progress extends Component {
+  static displayLabelContent(value, label) {
+    return label.replace('%s', value);
+  }
+
   static get props() {
     return {
       status: prop.number({
@@ -1088,9 +1092,17 @@ const Progress = define('sk-progress', class extends Component {
         attribute: true,
         default: 'green',
       }),
+      'background-color': prop.string({
+        attribute: true,
+        default: '#36474f',
+      }),
       endless: prop.boolean({
         attribute: true,
         default: false,
+      }),
+      label: prop.string({
+        attribute: true,
+        default: '%s%',
       }),
     };
   }
@@ -1107,7 +1119,7 @@ const Progress = define('sk-progress', class extends Component {
     return (
       <div className={`progress is-${elem.color} state-${value}`}>
         <style>{styles}</style>
-        <span>{`${value}%`}</span>
+        <span>{Progress.displayLabelContent(value, elem.label)}</span>
       </div>
     );
   }

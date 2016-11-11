@@ -1,6 +1,6 @@
 # ProgressCircle
 
-A Web component (based on SkateJS) that represents a progress in form of a circle with optional content in the middle.
+A Web component (based on [SkateJS](http://skate.js.org/)) that represents a progress in form of a circle with optional content in the middle.
 
 ## Todo
 
