@@ -34,7 +34,7 @@ const Progress = define('sk-progress', class Progress extends Component {
       }),
       size: prop.number({
         attribute: true,
-        default: 100
+        default: 100,
       }),
     };
   }

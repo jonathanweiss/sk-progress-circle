@@ -5,6 +5,7 @@ A Web component (based on [SkateJS](http://skate.js.org/)) that represents a pro
 ## Todo
 
 - [ ] Color support
+- [ ] Label Color support
 - [ ] Size support
 - [ ] Variable text content inside the circle
 - [ ] Build minified version

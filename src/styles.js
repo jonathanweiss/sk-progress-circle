@@ -1,8 +1,6 @@
 const elementStylesDefault = {
   position: 'relative',
   display: 'block',
-  width: '100px',
-  height: '100px',
   'border-radius': '50%',
   'background-color': '#fff',
 };
@@ -12,8 +10,6 @@ const afterElementStylesDefault = {
   left: 0,
   top: 0,
   opacity: 0.1,
-  width: '100px',
-  height: '100px',
   'border-radius': '50%',
   display: 'block',
   content: ' ',
@@ -23,16 +19,11 @@ const afterElementStylesDefault = {
 
 const spanStylesDefault = {
   position: 'absolute',
-  width: '60px',
-  height: '60px',
   left: 0,
   top: 0,
   'background-color': '#fff',
   'border-radius': '50%',
-  'margin-left': '20px',
-  'margin-top': '20px',
   'text-align': 'center',
-  'line-height': '60px',
   'font-size': '1rem',
   'z-index': '2',
 };
@@ -98,11 +89,24 @@ const getGradients = (value, color) => {
 const getStyles = (value, width, height, color, backgroundColor, size) => {
   // I could use the object spread operator, but don't want too many Babel plugins only for this usage here:
   // http://babeljs.io/docs/plugins/transform-object-rest-spread/
-  const elementStyles = Object.assign({}, elementStylesDefault, getGradients(value, color), { color, size });
-  const afterElementStyles = Object.assign({}, afterElementStylesDefault, { 'background-color': backgroundColor, size });
-  const spanStyles = Object.assign({}, spanStylesDefault);
-
-  console.warn(afterElementStyles);
+  const elementStyles = Object.assign({}, elementStylesDefault,
+    getGradients(value, color), {
+      color,
+      width: `${size}px`,
+      height: `${size}px`,
+    });
+  const afterElementStyles = Object.assign({}, afterElementStylesDefault, {
+    'background-color': backgroundColor,
+    width: `${size}px`,
+    height: `${size}px`,
+  });
+  const spanStyles = Object.assign({}, spanStylesDefault, {
+    width: `${0.6 * size}px`,
+    height: `${0.6 * size}px`,
+    'line-height': `${0.6 * size}px`,
+    'margin-left': `${0.2 * size}px`,
+    'margin-top': `${0.2 * size}px`,
+  });
 
   const styles = `
     .progress { ${mapToStyleDefinition(elementStyles)} }
