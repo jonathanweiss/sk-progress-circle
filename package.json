@@ -1,0 +1,42 @@
+{
+  "name": "sk-progress-circle",
+  "version": "0.0.1",
+  "description": "Displays a progress in form of a circle",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanweiss/sk-progress-circle.git"
+  },
+  "author": "Jonathan Weiß <info@jonathanweiss.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonathanweiss/sk-progress-circle/issues"
+  },
+  "homepage": "https://github.com/jonathanweiss/sk-progress-circle#readme",
+  "dependencies": {
+    "install": "^0.8.2",
+    "npm": "^3.10.9",
+    "skatejs": "^4.0.6",
+    "skatejs-web-components": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-plugin-incremental-dom": "^3.4.0",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-runtime": "^6.18.0",
+    "copy-webpack-plugin": "^4.0.0",
+    "eslint": "^3.9.1",
+    "eslint-config-ak-base": "^4.0.6",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
