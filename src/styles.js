@@ -59,7 +59,7 @@ const getGradients = (status, color) => {
           ${color} 50%,
           #ffffff 50%,
           #ffffff
-        );
+        )
       `,
     };
   } else {
