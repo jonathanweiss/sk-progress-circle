@@ -3,7 +3,7 @@ import { emit, prop, define, h, Component } from 'skatejs';
 
 import { getStyles } from './styles';
 
-const React = { createElemetn: h }; // eslint-disable-line no-unused-vars
+const React = { createElement: h }; // eslint-disable-line no-unused-vars
 
 const Progress = define('sk-progress', class Progress extends Component {
   static displayLabelContent(value, label) {
