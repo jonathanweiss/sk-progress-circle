@@ -8,11 +8,11 @@ A Web component (based on [SkateJS](http://skate.js.org/)) that represents a pro
 - [x] Label Color support
 - [x] Size support
 - [x] Variable text content inside the circle
-- [ ] Check ARIA status
+- [x] Check ARIA status
 - [ ] Build minified version
 - [ ] Unit Tests
 - [ ] API documentation
-- [ ] Visual Demo
+- [x] Visual Demo
 - [ ] Description (this file ;-])
 - [ ] Integrate semenatic release
 - [ ] Add commitizen
