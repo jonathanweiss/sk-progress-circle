@@ -7,8 +7,16 @@ import { getContainerStyles, getLabelStyles, getBackgroundElementStyles } from '
 const React = { createElement: h }; // eslint-disable-line no-unused-vars
 
 const Progress = define('sk-progress', class Progress extends Component {
-  static displayLabelContent(value, label) {
-    return label.replace('%s', value);
+
+  /**
+   * Returns a string representing the value using the string template
+   * @static
+   * @param {Number} value The progress (0..100)
+   * @param {String} label A template string that may contain'%s' which will be replaced with the value
+   * @return {String} The resulting text
+   */
+  static displayLabelContent(value, template) {
+    return template.replace('%s', value);
   }
 
   static get props() {
@@ -100,9 +108,17 @@ const Progress = define('sk-progress', class Progress extends Component {
     };
   }
 
+  /**
+   * Displays the progress circle
+   * @static
+   * @param {Object} elem The DOM node
+   * @return {Object} The resulting JSX tree
+   */
   static render(elem) {
+    // Read relevant properties from the element
     const { status, color, backgroundColor, label, size, labelColor, labelSize } = elem;
 
+    // Emit the change event
     emit(elem, 'change', {
       detail: {
         data: status,
