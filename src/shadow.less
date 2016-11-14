@@ -6,8 +6,8 @@
 .progress {
   position: relative;
   display: block;
-  width: 100px;
-  height: 100px;
+  // width: 100px; // will be overwritten via prop
+  // height: 100px; // will be overwritten via prop
   border-radius: 50%;
   background-color: #fff;
 
@@ -16,28 +16,28 @@
     left: 0;
     top: 0;
     opacity: 0.1;
-    width: 100px;
-    height: 100px;
+    // width: 100px; // will be overwritten via prop
+    // height: 100px; // will be overwritten via prop
     border-radius: 50%;
     display: block;
     content: ' ';
-    background-color: #36474f;
+    // background-color: #36474f; // will be overwritten via prop
     z-index: 1;
   };
 
   & > span {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    // width: 60px; // will be overwritten via prop
+    // height: 60px; // will be overwritten via prop
     left: 0;
     top: 0;
     background-color: #fff;
     border-radius: 50%;
-    margin-left: 20px;
-    margin-top: 20px;
+    // margin-left: 20px; // will be overwritten via prop
+    // margin-top: 20px; // will be overwritten via prop
     text-align: center;
-    line-height: 60px;
-    font-size: 1rem;
+    // line-height: 60px; // will be overwritten via prop
+    // font-size: 1rem; // will be overwritten via prop
     z-index: 2;
   };
 
