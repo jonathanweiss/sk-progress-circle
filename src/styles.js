@@ -101,6 +101,7 @@ const getStyles = (elem) => {
   });
 
   const styles = `
+    :host { display: inline-block; contain: content; }
     .progress { ${objToStyleDefinition(elementStyles)} }
     .progress:after { ${objToStyleDefinition(afterElementStyles)} }
     .progress > span { ${objToStyleDefinition(spanStyles)} }
