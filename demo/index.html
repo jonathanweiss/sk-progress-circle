@@ -15,13 +15,13 @@
       <h2>With status</h2>
       <sk-progress status="21"></sk-progress>
 
-      <h2>With status and background-color</h2>
+      <h2>With status and colors</h2>
       <sk-progress status="58" color="red" background-color="orange"></sk-progress>
 
       <h2>With custom size and label options</h2>
       <sk-progress status="67" size="400" label="Progress: %s percent" label-size="25" label-color="darkblue"></sk-progress>
 
-      <h2>Mini</h2>
+      <h2>Minis</h2>
       <sk-progress size="10" status="100" label=""></sk-progress>
       <sk-progress size="10" status="50" label=""></sk-progress>
       <sk-progress size="10" status="25" label=""></sk-progress>
@@ -32,8 +32,12 @@
 
       <script src="bundle.js"></script>
       <script type="text/javascript">
-        setInterval(() => {
-          const $node = document.getElementById('aria-test');
+        const $node = document.getElementById('aria-test');
+        $node.addEventListener('change', function (event) {
+          console.log('Value from property "' + $node.status + '", value from event: "' + event.detail.data + '"');
+        });
+
+        setInterval(function (event) {
           $node.status = Math.round(Math.random() * 100);
         }, 3000);
       </script>
