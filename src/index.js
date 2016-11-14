@@ -6,8 +6,7 @@ import { getContainerStyles, getLabelStyles, getBackgroundElementStyles } from '
 
 const React = { createElement: h }; // eslint-disable-line no-unused-vars
 
-const Progress = define('sk-progress', class Progress extends Component {
-
+class Progress extends Component {
   /**
    * Returns a string representing the value using the string template
    * @static
@@ -133,7 +132,6 @@ const Progress = define('sk-progress', class Progress extends Component {
       </div>
     );
   }
+}
 
-});
-
-export default Progress;
+export default define('sk-progress', Progress);
