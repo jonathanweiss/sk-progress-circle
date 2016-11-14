@@ -1,3 +1,5 @@
+import { objToStyleDefinition } from './utils';
+
 const elementStylesDefault = {
   'background-color': '#fff',
   'border-radius': '50%',
@@ -27,61 +29,42 @@ const spanStylesDefault = {
   'z-index': '2',
 };
 
-const mapToStyleDefinition = (styleMap) => {
-  const attributesThatNeedQuotes = ['content'];
-
-  return Object.keys(styleMap)
-    .map((attribute) => {
-      let attributestatus = styleMap[attribute];
-      if (attributesThatNeedQuotes.indexOf(attribute) !== -1) {
-        attributestatus = `"${attributestatus}"`;
-      }
-
-      return `${attribute}: ${attributestatus};\n`;
-    })
-    .join('');
-};
-
 const getGradients = (status, color) => {
-  let backgroundDefinition;
+  let gradients;
 
   if (status < 50) {
-    backgroundDefinition = {
-      'background-image': `
-        linear-gradient(
-          90deg,
-          #ffffff 50%,
-          transparent 50%,
-          transparent
-        ),
-        linear-gradient(
-          ${90 + (3.6 * status)}deg,
-          ${color} 50%,
-          #ffffff 50%,
-          #ffffff
-        )
-      `,
-    };
+    gradients = `
+      linear-gradient(
+        90deg,
+        #ffffff 50%,
+        transparent 50%,
+        transparent
+      ),
+      linear-gradient(
+        ${Math.round(90 + (3.6 * status))}deg,
+        ${color} 50%,
+        #ffffff 50%,
+        #ffffff
+      )
+    `;
   } else {
-    backgroundDefinition = {
-      'background-image': `
-        linear-gradient(
-          ${-90 + (3.6 * (status - 50))}deg,
-          ${color} 50%,
-          transparent 50%,
-          transparent
-        ),
-        linear-gradient(
-          270deg,
-          ${color} 50%,
-          #ffffff 50%,
-          #ffffff
-        );
-      `,
-    };
+    gradients = `
+      linear-gradient(
+        ${Math.round(-90 + (3.6 * (status - 50)))}deg,
+        ${color} 50%,
+        transparent 50%,
+        transparent
+      ),
+      linear-gradient(
+        270deg,
+        ${color} 50%,
+        #ffffff 50%,
+        #ffffff
+      )
+    `;
   }
 
-  return backgroundDefinition;
+  return gradients;
 };
 
 const getStyles = (elem) => {
@@ -92,7 +75,8 @@ const getStyles = (elem) => {
 
   // Add gradient to div container and adjust dimensions
   const elementStyles = Object.assign({}, elementStylesDefault,
-    getGradients(status, color), {
+    {
+      'background-image': getGradients(status, color),
       color,
       width: `${size}px`,
       height: `${size}px`,
@@ -117,9 +101,9 @@ const getStyles = (elem) => {
   });
 
   const styles = `
-    .progress { ${mapToStyleDefinition(elementStyles)} }
-    .progress:after { ${mapToStyleDefinition(afterElementStyles)} }
-    .progress > span { ${mapToStyleDefinition(spanStyles)} }
+    .progress { ${objToStyleDefinition(elementStyles)} }
+    .progress:after { ${objToStyleDefinition(afterElementStyles)} }
+    .progress > span { ${objToStyleDefinition(spanStyles)} }
   `;
 
   return styles;
