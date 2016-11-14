@@ -18,33 +18,81 @@ const Progress = define('sk-progress', class Progress extends Component {
      * @memberof Progress
      * @default '#a9a9a9'
      * @type {string}
-     * @example @html <sk-progress backgroundColor="#a9a9a9"></ak-button>
-     * @example @js button.background-color = '#a9a9a9';
+     * @example @html <sk-progress background-color="#a9a9a9"></sk-progress>
+     * @example @js progress.backgroundColor = '#a9a9a9';
      */
       backgroundColor: prop.string({
         attribute: true,
         default: '#a9a9a9',
       }),
+    /**
+     * @description Color to use for the progress part of the circle
+     * @memberof Progress
+     * @default '#339900'
+     * @type {string}
+     * @example @html <sk-progress color="#339900"></sk-progress>
+     * @example @js progress.color = '#339900';
+     */
       color: prop.string({
         attribute: true,
         default: '#339900',
       }),
+    /**
+     * @description Text to be used inside the circle to diplay the current status. The "%s" will be replaced with the actual number
+     * @memberof Progress
+     * @default '%s%'
+     * @type {string}
+     * @example @html <sk-progress label="%s percent"></sk-progress>
+     * @example @js progress.label = '%s percent';
+     */
       label: prop.string({
         attribute: true,
         default: '%s%',
       }),
+    /**
+     * @description Text color of the label
+     * @memberof Progress
+     * @default '#111111'
+     * @type {string}
+     * @example @html <sk-progress label-color="darkgrey"></sk-progress>
+     * @example @js progress.labelColor = 'darkgrey';
+     */
       labelColor: prop.string({
         attribute: true,
         default: '#111111',
       }),
-      labelSize: prop.number({
+    /**
+     * @description Font-size of the label
+     * @memberof Progress
+     * @default '16px'
+     * @type {string}
+     * @example @html <sk-progress label-size="24px"></sk-progress>
+     * @example @js progress.labelSize = '24px';
+     */
+      labelSize: prop.string({
         attribute: true,
-        default: 16,
+        default: '16px',
       }),
+    /**
+     * @description Width and height of the ciricle in pixels
+     * @memberof Progress
+     * @default 100
+     * @type {number}
+     * @example @html <sk-progress size="200"></sk-progress>
+     * @example @js progress.size = 200;
+     */
       size: prop.number({
         attribute: true,
         default: 100,
       }),
+    /**
+     * @description Progress status from 0 to 100
+     * @memberof Progress
+     * @default 0
+     * @type {number}
+     * @example @html <sk-progress status="33"></sk-progress>
+     * @example @js progress.status = 33;
+     */
       status: prop.number({
         attribute: true,
         default: 0,

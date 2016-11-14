@@ -48,7 +48,7 @@ export const getContainerStyles = (status, size, color) => {
 export const getLabelStyles = (labelColor, labelSize, size) => {
   return {
     color: `${labelColor}`,
-    'font-size': `${labelSize}px`,
+    'font-size': `${labelSize}`,
     height: `${0.6 * size}px`,
     'line-height': `${0.6 * size}px`,
     'margin-left': `${0.2 * size}px`,
