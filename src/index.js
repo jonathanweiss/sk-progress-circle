@@ -53,7 +53,7 @@ const Progress = define('sk-progress', class Progress extends Component {
     });
 
     return (
-      <div className="progress" aria-valuenow={status} aria-valuemin="0" aria-valuemax="100" aria-live="polite">
+      <div className="progress" role="progressbar" aria-valuenow={status} aria-valuemin="0" aria-valuemax="100" aria-live="polite">
         <style type="text/css">{getStyles(elem)}</style>
         <span>{Progress.displayLabelContent(status, label)}</span>
       </div>
