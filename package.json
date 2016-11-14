@@ -4,6 +4,7 @@
   "description": "Displays a progress in form of a circle",
   "main": "index.js",
   "scripts": {
+    "coveralls": "cat ./coverage/report-lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS2",
     "test:dev": "node ./node_modules/karma/bin/karma start",
     "start": "webpack-dev-server --hot --inline",
