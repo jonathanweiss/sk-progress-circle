@@ -1,54 +1,98 @@
-const webpackConfig = require('./webpack.config.js');
+// Karma configuration
+// Generated on Mon Nov 14 2016 13:12:21 GMT+0100 (CET)
 
-module.exports = (config) => {
+module.exports = function (config) {
   config.set({
+
+    // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
-    frameworks: ['mocha', 'chai'],
 
-    reporters: ['progress'],
-    port: 9876,
-    colors: false,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    autoWatchBatchDelay: 300,
 
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['mocha', 'browserify'],
+
+
+    // list of files / patterns to load in the browser
     files: [
-      './src/**/*.js',
-      './node_modules/skatejs/dist/index.min.js',
-      './node_modules/skatejs-web-components/dist/index-with-deps.min.js'],
-
-    preprocessors: {
-      'src/**/*.js': ['webpack'],
-      'test/**/*.js': ['webpack'],
-    },
-
-    plugins: [
-      'karma-babel-preprocessor',
-      'karma-mocha',
-      'karma-webpack',
-      'karma-chai',
-      'karma-chrome-launcher',
+      './build/bundle.min.js',
+      'test/test-*.js',
     ],
 
-    webpack: {
-      module: {
-        loaders: [
-          {
-            test: /\.js$/,
-            loader: 'babel-loader',
-          },
-          {
-            test: /\.less$/,
-            loader: 'css!less',
+
+    // list of files to exclude
+    exclude: [
+    ],
+
+
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+      'test/*.js': ['browserify'],
+    },
+
+    browserify: {
+      debug: true,
+      transform: [
+        [
+          'babelify', {
+            presets: 'es2015',
           },
         ],
+        [
+          'browserify-istanbul', {
+            instrumenterConfig: {
+              embedSource: true,
+            },
+          },
+        ],
+      ],
+    },
+
+    coverageReporter: {
+      reporters: [
+        { type: 'text' },
+        { type: 'html', dir: 'coverage' },
+        { type: 'lcov' },
+      ],
+    },
+
+    client: {
+      chai: {
+        includeStack: true,
       },
     },
 
-    webpackMiddleware: {
-      noInfo: true,
-    },
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress', 'mocha'],
+
+
+    // web server port
+    port: 9876,
+
+
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
+
+
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
+
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: true,
+
+
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: ['Chrome'],
+
+
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: false,
   });
 };
