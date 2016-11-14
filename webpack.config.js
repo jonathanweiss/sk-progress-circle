@@ -6,6 +6,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const dirSrc = path.resolve(__dirname, 'src');
+const dirTest = path.resolve(__dirname, 'test');
 const dirBuild = path.resolve(__dirname, 'build');
 const dirDemo = path.resolve(__dirname, 'demo');
 
@@ -26,6 +27,10 @@ module.exports = {
         test: dirSrc,
       },
       {
+        loader: 'babel-loader',
+        test: dirTest,
+      },
+      {
         test: /\.less$/,
         loader: 'css!less',
       },
@@ -43,6 +48,7 @@ module.exports = {
     // Nice colored output
     colors: true,
   },
+
   // Create Sourcemaps for the bundle
   devtool: 'source-map',
 };
