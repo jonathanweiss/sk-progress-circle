@@ -15,10 +15,9 @@ webpackConfiguration.module.postLoaders = [
   },
 ];
 
-// Karma configuration
 module.exports = function (config) {
-  config.set({
-
+  // Karma configuration
+  const configuration = {
     files: [
       // only specify one entry point
       // and require all tests in there
@@ -44,6 +43,13 @@ module.exports = function (config) {
     },
     webpack: webpackConfiguration,
 
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
+
     logLevel: config.LOG_WARN,
     autoWatch: true,
     singleRun: false,
@@ -54,5 +60,11 @@ module.exports = function (config) {
       // i. e.
       stats: 'errors-only',
     },
-  });
+  };
+
+  if (process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(configuration);
 };

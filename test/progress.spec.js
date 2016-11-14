@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import Progress from '../src/index';
 
+const ELEMENT_CONSTRUCTION_DELAY = 128;
+
 describe('sk-progress', () => {
   let $target = null;
 
@@ -32,7 +34,7 @@ describe('sk-progress', () => {
       expect($emptyProgress.offsetWidth).to.be.above(0);
       expect($emptyProgress.offsetHeight).to.be.above(0);
       done();
-    }, 0);
+    }, ELEMENT_CONSTRUCTION_DELAY);
   });
 
   it('renders an big, filled element', (done) => {
@@ -41,6 +43,7 @@ describe('sk-progress', () => {
     bigProgress.status = 100;
     bigProgress.size = 400;
     bigProgress.color = 'blue';
+    bigProgress.backgroundColor = 'lightgrey';
     $target.appendChild(bigProgress);
 
     window.setTimeout(() => {
@@ -52,7 +55,7 @@ describe('sk-progress', () => {
       expect($bigProgress.status).to.equal(100);
 
       done();
-    }, 0);
+    }, ELEMENT_CONSTRUCTION_DELAY);
   });
 
   it('uses a custom label', (done) => {
@@ -71,6 +74,19 @@ describe('sk-progress', () => {
       expect($customProgress.status).to.equal(44);
 
       done();
-    }, 0);
+    }, ELEMENT_CONSTRUCTION_DELAY);
+  });
+
+  it('triggers an event', (done) => {
+    const eventProgress = document.createElement('sk-progress');
+    eventProgress.addEventListener('change', () => {
+      done();
+    });
+
+    $target.appendChild(eventProgress);
+
+    window.setTimeout(() => {
+      eventProgress.status = 11;
+    }, ELEMENT_CONSTRUCTION_DELAY);
   });
 });
