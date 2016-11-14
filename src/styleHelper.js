@@ -80,7 +80,6 @@ export const getLabelStyles = (labelColor, fontSize, size) => {
   };
 };
 
-
 /**
  * Creates the inline styles needed on background element
  * @public

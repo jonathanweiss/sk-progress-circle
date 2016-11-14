@@ -11,7 +11,7 @@ A Web component (based on [SkateJS](http://skate.js.org/)) that represents a pro
 - [x] Check ARIA status
 - [ ] Build minified version
 - [ ] Unit Tests
-- [ ] API documentation
+- [x] API documentation
 - [x] Visual Demo
 - [ ] Description (this file ;-])
 - [ ] Integrate semenatic release
