@@ -1,7 +1,7 @@
 import 'skatejs-web-components';
 import { emit, prop, define, h, Component } from 'skatejs';
 
-import { getStyles } from './styles';
+import shadowStyles from './shadow.less';
 
 const React = { createElement: h }; // eslint-disable-line no-unused-vars
 
@@ -54,8 +54,9 @@ const Progress = define('sk-progress', class Progress extends Component {
 
     return (
       <div className="progress" role="progressbar" aria-valuenow={status} aria-valuemin="0" aria-valuemax="100" aria-live="polite">
-        <style type="text/css">{getStyles(elem)}</style>
+        <style type="text/css">{shadowStyles.toString()}</style>
         <span>{Progress.displayLabelContent(status, label)}</span>
+        <div class="bg"></div>
       </div>
     );
   }

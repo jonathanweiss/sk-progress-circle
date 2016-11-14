@@ -25,6 +25,10 @@ module.exports = {
         loader: 'babel-loader',
         test: dirSrc,
       },
+      {
+        test: /\.less$/,
+        loader: 'css!less',
+      },
     ],
   },
   plugins: [
