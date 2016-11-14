@@ -1,6 +1,19 @@
-let webpackConfiguration = require('./webpack.config.js');
+const path = require('path');
+
+const webpackConfiguration = require('./webpack.config.js');
 
 delete webpackConfiguration.entry;
+webpackConfiguration.module.postLoaders = [
+  // instrument only testing sources with Istanbul
+  {
+    test: /\.js$/,
+    include: path.resolve('src/'),
+    loader: 'istanbul-instrumenter',
+    query: {
+      esModules: true,
+    },
+  },
+];
 
 // Karma configuration
 module.exports = function (config) {
@@ -17,11 +30,29 @@ module.exports = function (config) {
       'test/test-main.js': ['webpack'],
     },
 
+    frameworks: ['mocha'],
+
+    reporters: ['mocha', 'coverage'],
+    coverageReporter: {
+      reporters: [
+        { type: 'text' },
+        { type: 'html', subdir: 'report-html' },
+        { type: 'lcov', subdir: 'report-lcov' },
+      ],
+    },
+    istanbulReporter: {
+    },
     webpack: webpackConfiguration,
+
+    logLevel: config.LOG_WARN,
+    autoWatch: true,
+    singleRun: false,
+    colors: true,
 
     webpackMiddleware: {
       // webpack-dev-middleware configuration
       // i. e.
+      stats: 'errors-only',
     },
   });
 };
