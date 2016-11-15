@@ -1,4 +1,5 @@
 const path = require('path');
+const browsers = require('./karma.browsers.js');
 
 const webpackConfiguration = require('./webpack.config.js');
 
@@ -17,7 +18,7 @@ webpackConfiguration.module.postLoaders = [{
 
 module.exports = function (config) {
   // Karma configuration
-  const configuration = {
+  let configuration = {
     files: [
       // only specify one entry point
       // and require all tests in there
@@ -63,7 +64,13 @@ module.exports = function (config) {
   };
 
   if (process.env.TRAVIS) {
-    configuration.browsers = ['Chrome_travis_ci'];
+    configuration = Object.assign({}, configuration, {
+      customLaunchers: browsers,
+      browsers: Object.keys(browsers),
+      retryLimit: 3,
+      autoWatch: false,
+      concurrency: 4,
+    });
   }
 
   config.set(configuration);
