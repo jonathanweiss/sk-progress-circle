@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import Progress from '../src/index';
 
-const ELEMENT_CONSTRUCTION_DELAY = 128;
+const ELEMENT_CONSTRUCTION_DELAY = 16;
 
 describe('sk-progress', () => {
   let $target = null;
@@ -87,6 +87,6 @@ describe('sk-progress', () => {
 
     window.setTimeout(() => {
       eventProgress.status = 11;
-    }, ELEMENT_CONSTRUCTION_DELAY);
+    }, 0);
   });
 });
