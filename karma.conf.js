@@ -2,18 +2,18 @@ const path = require('path');
 
 const webpackConfiguration = require('./webpack.config.js');
 
+// Remove default entry point since we're using test-main.js instead
 delete webpackConfiguration.entry;
-webpackConfiguration.module.postLoaders = [
-  // instrument only testing sources with Istanbul
-  {
-    test: /\.js$/,
-    include: path.resolve('src/'),
-    loader: 'istanbul-instrumenter',
-    query: {
-      esModules: true,
-    },
+
+// instrument only testing sources with Istanbul
+webpackConfiguration.module.postLoaders = [{
+  test: /\.js$/,
+  include: path.resolve('src/'),
+  loader: 'istanbul-instrumenter',
+  query: {
+    esModules: true,
   },
-];
+}];
 
 module.exports = function (config) {
   // Karma configuration
@@ -46,8 +46,8 @@ module.exports = function (config) {
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
+        flags: ['--no-sandbox'],
+      },
     },
 
     logLevel: config.LOG_WARN,
