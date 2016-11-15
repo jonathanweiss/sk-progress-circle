@@ -11,7 +11,11 @@ const dirBuild = path.resolve(__dirname, 'build');
 const dirDemo = path.resolve(__dirname, 'demo');
 
 module.exports = {
-  entry: path.resolve(dirSrc, 'index.js'),
+  entry: [
+    path.resolve(dirSrc, 'index.js'),
+    'webpack-dev-server/client?http://127.0.0.1:4000',
+    'webpack/hot/only-dev-server',
+  ],
   output: {
     path: dirBuild,
     filename: 'bundle.js',
