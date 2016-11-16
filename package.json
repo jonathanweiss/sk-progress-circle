@@ -1,15 +1,17 @@
 {
   "name": "sk-progress-circle",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "Displays a progress in form of a circle",
   "main": "index.js",
   "scripts": {
+    "commit": "git-cz -n",
     "coveralls": "cat ./coverage/report-lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "test": "./node_modules/.bin/karma start --ci --single-run",
-    "test:dev": "node ./node_modules/karma/bin/karma start --browsers Chrome",
-    "start": "webpack-dev-server --hot --inline --port 4000",
     "dist": "webpack -p --output-file bundle.min.js",
-    "eslint": "node ./node_modules/.bin/eslint src/*.js test/*.js"
+    "eslint": "node ./node_modules/.bin/eslint src/*.js test/*.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "start": "webpack-dev-server --hot --inline --port 4000",
+    "test": "./node_modules/.bin/karma start --ci --single-run",
+    "test:dev": "node ./node_modules/karma/bin/karma start --browsers Chrome"
   },
   "files": [
     "dist"
@@ -19,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonathanweiss/sk-progress-circle.git"
+    "url": "https://github.com/jonathanweiss/sk-progress-circle.git"
   },
   "author": "Jonathan Weiß <info@jonathanweiss.net>",
   "license": "MIT",
@@ -45,6 +47,7 @@
     "copy-webpack-plugin": "^4.0.0",
     "coveralls": "^2.11.15",
     "css-loader": "^0.25.0",
+    "cz-conventional-changelog": "^1.2.0",
     "eslint": "^3.10.0",
     "eslint-config-ak-base": "^4.0.6",
     "istanbul-instrumenter-loader": "^1.0.0",
@@ -66,8 +69,14 @@
     "mocha": "^3.1.2",
     "pre-commit": "^1.1.3",
     "safari-launcher": "^2.0.5",
+    "semantic-release": "^4.3.5",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

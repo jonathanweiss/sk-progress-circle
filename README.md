@@ -15,13 +15,12 @@ A Web component (based on [SkateJS](http://skate.js.org/)) that represents a pro
 - [x] Size support
 - [x] Variable text content inside the circle
 - [x] Check ARIA status
-- [ ] Build minified with semantic release?
+- [ ] Build minified
 - [x] Unit Tests
 - [x] API documentation
 - [x] Visual Demo
 - [ ] Description (this file ;-])
-- [ ] Integrate semenatic release
-- [ ] Add commitizen
-- [ ] Add greenkeeper
-- [x] Add coveralls
+- [x] Integrate semenatic release
+- [x] Add commitizen
+- [x] Add greenkeeper
 - [ ] Refactor to a stateless component?
