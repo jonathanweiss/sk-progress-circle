@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "coveralls": "cat ./coverage/report-lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "test": "./node_modules/.bin/karma start --ci --single-run",
-    "test:dev": "node ./node_modules/karma/bin/karma start --browsers Chrome",
+    "test": "npm run eslint && npm run unittest",
+    "unittest": "./node_modules/.bin/karma start --ci --single-run",
+    "test:dev": "npm run eslint && node ./node_modules/karma/bin/karma start --browsers Chrome",
     "start": "webpack-dev-server --hot --inline --port 4000",
-    "dist": "webpack -p --output-file bundle.min.js"
+    "dist": "webpack -p --output-file bundle.min.js",
+    "eslint": "./node_modules/.bin/eslint src/*.js test/*.js"
   },
   "files": [
     "dist"
