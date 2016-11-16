@@ -124,6 +124,7 @@ class Progress extends Component {
       },
     });
 
+    /* eslint-disable react/react-in-jsx-scope */
     return (
       <div style={getContainerStyles(status, size, color)} className="progress" role="progressbar" aria-valuenow={status} aria-valuemin="0" aria-valuemax="100" aria-live="polite">
         <style type="text/css">{shadowStyles.toString()}</style>
@@ -131,6 +132,7 @@ class Progress extends Component {
         <div style={getBackgroundElementStyles(size, backgroundColor)} class="bg" />
       </div>
     );
+    /* eslint-enable react/react-in-jsx-scope */
   }
 }
 
