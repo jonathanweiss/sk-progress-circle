@@ -6,7 +6,7 @@
   "scripts": {
     "commit": "git-cz -n",
     "coveralls": "cat ./coverage/report-lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "dist": "webpack -p --output-file bundle.min.js",
+    "dist": "webpack -p --display-modules --progress --display-reasons",
     "eslint": "node ./node_modules/.bin/eslint src/*.js test/*.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "start": "webpack-dev-server --hot --inline --port 4000",
