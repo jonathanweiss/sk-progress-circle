@@ -31,7 +31,7 @@
   "homepage": "https://github.com/jonathanweiss/sk-progress-circle#readme",
   "dependencies": {
     "skatejs": "^4.0.6",
-    "skatejs-web-components": "^4.0.1"
+    "skatejs-web-components": "^5.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
