@@ -2,11 +2,11 @@
   "name": "sk-progress-circle",
   "version": "0.0.0-development",
   "description": "Displays a progress in form of a circle",
-  "main": "index.js",
+  "main": "/dist/all.min.js",
   "scripts": {
     "commit": "git-cz -n",
     "coveralls": "cat ./coverage/report-lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "dist": "webpack -p --display-modules --progress --display-reasons",
+    "build": "NODE_ENV=production && webpack -p --display-modules --progress --display-reasons",
     "eslint": "node ./node_modules/.bin/eslint src/*.js test/*.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "start": "webpack-dev-server --hot --inline --port 4000",

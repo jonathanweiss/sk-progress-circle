@@ -16,7 +16,7 @@ const args = process.argv.slice(2);
 let entry;
 let output;
 let devtool;
-let plugins = [];
+let plugins;
 
 if (args[0] === '-p') {
   entry = [path.resolve(dirSrc, 'index.js')];
@@ -24,6 +24,12 @@ if (args[0] === '-p') {
     path: dirDist,
     filename: 'all.min.js',
   };
+  plugins = [
+    new webpack.optimize.CommonsChunkPlugin('common.js'),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
+  ];
 } else {
   entry = [
     path.resolve(dirSrc, 'index.js'),
