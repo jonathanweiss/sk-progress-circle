@@ -32,7 +32,7 @@
 
       <script src="bundle.js"></script>
       <script type="text/javascript">
-        const $node = document.getElementById('aria-test');
+        var $node = document.getElementById('aria-test');
         $node.addEventListener('change', function (event) {
           console.log('Value from property "' + $node.status + '", value from event: "' + event.detail.data + '"');
         });
