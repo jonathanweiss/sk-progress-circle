@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import 'skatejs-web-components';
 import { emit, prop, define, h, Component } from 'skatejs';
 
