@@ -30,12 +30,14 @@ module.exports = {
   },
 
   // IE
-  internet_explorer_11: {
-    browserName: 'internet explorer',
-    platform: 'Windows 10',
-    version: '11',
-    base: 'SauceLabs',
-  },
+  // internet_explorer_11: {
+  //   browserName: 'internet explorer',
+  //   platform: 'Windows 10',
+  //   version: '11',
+  //   base: 'SauceLabs',
+  // },
+  // 
+  // https://github.com/jonathanweiss/sk-progress-circle/issues/6
 
   // Edge
   microsoftedge_latest: {
