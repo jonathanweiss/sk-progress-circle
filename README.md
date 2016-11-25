@@ -7,3 +7,7 @@
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/mit-license.php)
 
 A Web component (based on [SkateJS](http://skate.js.org/)) that represents a progress in form of a circle with optional content in the middle.
+
+![Demo](https://jonathanweiss.github.io/sk-progress-circle/example_1.png)
+
+Read more about the [usage and all supported attributes in the documentation](https://jonathanweiss.github.io/sk-progress-circle/).

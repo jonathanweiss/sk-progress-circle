@@ -13,6 +13,9 @@
       code {
         font-size: 110%;
       }
+      code.usage {
+        background-color: rgba(123, 123, 123, 0.2);
+      }
     </style>
   </head>
 
@@ -22,14 +25,139 @@
       <h2>Introduction</h2>
 
       <p>ProgressCircle displays a circle that has a background color and is filled with another color. The fill level represents a progress between 0% and 100%. The circle has a hole in the middle (why didn't I call this progrject <code>sk-progress-doughnut</code>?) that can be used to display a short text (e.g. the current progress in percent).</p>
-      <p>The component is implemented as a Web Component using the awesome SkateJS project to normalize different browser behaviour and to include the polyfills required for some browsers.</p>
+      <p>The component is implemented as a Web Component using the awesome <a href="http://skate.js.org/">SkateJS project</a> to normalize different browser behaviour and to include the polyfills required for some browsers.</p>
 
+
+      <h2>Usage</h2>
+      <p>Just include the compiled version and your're ready to use the web component.</p>
+      <code>&lt;script src="node_modules/sk-progress-circle/dist/all.min.js"&gt;</script></code>
+
+      <p>The most imporant attribute is <code>status</code>:</p>
+      <code>&lt;sk-progress status="75"&gt;&lt;/sk-progress&gt;</code>
       <figure>
         <img src="example_1.png" alt="Example of how the progress circle can look like" style="border: 1px #a1a1a1 dotted" />
         <figcaption>Example #1</figcaption>
       </figure>
 
       <h2>Available attributes</h2>
+      <p>Attributes can be set in the HTML markup or the DOM node or during runtime.</p>
+
+      <ul>
+        <li>
+          <h3><code>backgroundColor</code></h3>
+
+          <p>Color to use for the background of the circle. Must be a valid color name or color value.</p>
+
+          <h4>Example</h4>
+          <p>
+            HTML: <code class="usage">&lt;sk-progress background-color="#a9a9a9"&gt;&lt;/sk-progress&gt;</code>
+          </p>
+          <p>
+            JavaScript: <code class="usage">progress.backgroundColor = '#a9a9a9';</code>
+          </p>
+        </li>
+
+
+        <li>
+          <h3><code>color</code></h3>
+
+          <p>Color to use for the progress part of the circle</p>
+
+          <h4>Example</h4>
+          <p>
+            HTML: <code class="usage">&lt;sk-progress color="#339900"&gt;&lt;/sk-progress&gt;</code>
+          </p>
+          <p>
+            JavaScript: <code class="usage">progress.color = '#339900';</code>
+          </p>
+        </li>
+
+
+        <li>
+          <h3><code>label</code></h3>
+
+          <p>Text to be used inside the circle to diplay the current status. The <code>%s</code> will be replaced with the actual number</p>
+
+          <h4>Example</h4>
+          <p>
+            HTML: <code class="usage">&lt;sk-progress label="%s percent"&gt;&lt;/sk-progress&gt;</code>
+          </p>
+          <p>
+            JavaScript: <code class="usage">progress.label = '%s percent';</code>
+          </p>
+        </li>
+
+
+        <li>
+          <h3><code>labelColor</code></h3>
+
+          <p>Text color of the label</p>
+
+          <h4>Example</h4>
+          <p>
+            HTML: <code class="usage">&lt;sk-progress label-color="darkgrey"&gt;&lt;/sk-progress&gt;</code>
+          </p>
+          <p>
+            JavaScript: <code class="usage">progress.labelColor = 'darkgrey';</code>
+          </p>
+        </li>
+
+
+        <li>
+          <h3><code>labelSize</code></h3>
+
+          <p>Font-size of the label</p>
+
+          <h4>Example</h4>
+          <p>
+            HTML: <code class="usage">&lt;sk-progress label-size="24px"&gt;&lt;/sk-progress&gt;</code>
+          </p>
+          <p>
+            JavaScript: <code class="usage">progress.labelSize = '24px';</code>
+          </p>
+        </li>
+
+
+        <li>
+          <h3><code>size</code></h3>
+
+          <p>Width and height of the ciricle in pixels</p>
+
+          <h4>Example</h4>
+          <p>
+            HTML: <code class="usage">&lt;sk-progress size="200"&gt;&lt;/sk-progress&gt;</code>
+          </p>
+          <p>
+            JavaScript: <code class="usage">progress.size = 200;</code>
+          </p>
+        </li>
+
+
+        <li>
+          <h3><code>status</code></h3>
+
+          <p>Progress status from 0 to 100</p>
+
+          <h4>Example</h4>
+          <p>
+            HTML: <code class="usage">&lt;sk-progress status="33"&gt;&lt;/sk-progress&gt;</code>
+          </p>
+          <p>
+            JavaScript: <code class="usage">progress.status = 33;</code>
+          </p>
+        </li>
+      </ul>
+
+      <h2>Events</h2>
+      <ul>
+        <li>
+          <h3><code>change</code></h3>
+
+          <p>The <code>change</code> event is emitted every time the value of <code>status</code> is changed.</p>
+          <p>Payload: <code>status</code> the current status of the component.</p>
+        </li>
+      </ul>
+
   </body>
 
 </html>
