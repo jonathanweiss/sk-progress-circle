@@ -9,7 +9,7 @@ const dirSrc = path.resolve(__dirname, 'src');
 const dirTest = path.resolve(__dirname, 'test');
 const dirBuild = path.resolve(__dirname, 'build');
 const dirDist = path.resolve(__dirname, 'dist');
-const dirDemo = path.resolve(__dirname, 'demo');
+const dirDev = path.resolve(__dirname, 'dev');
 
 const args = process.argv.slice(2);
 
@@ -42,7 +42,7 @@ if (args[0] === '-p') {
   plugins = [
     // Simply copies the files over
     new CopyWebpackPlugin([
-        { from: dirDemo }, // to: output.path
+        { from: dirDev }, // to: output.path
     ]),
     // Avoid publishing files when compilation fails
     new webpack.NoErrorsPlugin(),
