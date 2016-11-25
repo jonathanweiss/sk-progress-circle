@@ -10,4 +10,6 @@ A Web component (based on [SkateJS](http://skate.js.org/)) that represents a pro
 
 ![Demo](https://jonathanweiss.github.io/sk-progress-circle/example_1.png)
 
+[See more demos](https://jonathanweiss.github.io/sk-progress-circle/demo.html).
+
 Read more about the [usage and all supported attributes in the documentation](https://jonathanweiss.github.io/sk-progress-circle/).

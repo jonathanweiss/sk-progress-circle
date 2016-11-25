@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ProgressCircle</title>
+  </head>
+
+  <body>
+      <h1>ProgressCircle</h1>
+      <h2>Without attributes (default)</h2>
+      <sk-progress></sk-progress>
+
+      <h2>With status</h2>
+      <sk-progress status="21"></sk-progress>
+
+      <h2>With status and colors</h2>
+      <sk-progress status="58" color="red" background-color="orange"></sk-progress>
+
+      <h2>With custom size and label options</h2>
+      <sk-progress status="67" size="400" label="Progress: %s percent" label-size="25px" label-color="darkblue"></sk-progress>
+
+      <h2>Minis</h2>
+      <sk-progress size="10" status="100" label=""></sk-progress>
+      <sk-progress size="10" status="50" label=""></sk-progress>
+      <sk-progress size="10" status="25" label=""></sk-progress>
+      <sk-progress size="10" status="0" label=""></sk-progress>
+
+      <h2>Updating every three seconds</h2>
+      <sk-progress id="update"></sk-progress>
+
+      <script src="all.min.js"></script>
+      <script type="text/javascript">
+        var $node = document.getElementById('update');
+        $node.addEventListener('change', function (event) {
+          console.log('Value from property "' + $node.status + '", value from event: "' + event.detail.data + '"');
+        });
+
+        setInterval(function (event) {
+          $node.status = Math.round(Math.random() * 100);
+        }, 3000);
+      </script>
+  </body>
+
+</html>
