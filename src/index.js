@@ -31,7 +31,7 @@ class Progress extends Component {
      */
       backgroundColor: prop.string({
         attribute: true,
-        default: '#a9a9a9',
+        default: '#404040',
       }),
     /**
      * @description Color to use for the progress part of the circle
