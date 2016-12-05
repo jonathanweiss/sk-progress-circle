@@ -23,6 +23,7 @@ if (args[0] === '-p') {
   output = {
     path: dirDist,
     filename: 'all.min.js',
+    libraryTarget: 'umd',
   };
   plugins = [
     new webpack.optimize.DedupePlugin(),
