@@ -67,7 +67,7 @@
     "karma-safari-launcher": "^1.0.0",
     "karma-sauce-launcher": "^1.0.0",
     "karma-spec-reporter": "0.0.26",
-    "karma-webpack": "^1.8.0",
+    "karma-webpack": "^2.0.2",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "mocha": "^3.1.2",
