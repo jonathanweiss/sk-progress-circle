@@ -110,11 +110,10 @@ class Progress extends Component {
 
   /**
    * Displays the progress circle
-   * @static
    * @param {Object} elem The DOM node
    * @return {Object} The resulting JSX tree
    */
-  static render(elem) {
+  renderCallback(elem) { // eslint-disable-line
     // Read relevant properties from the element
     const { status, color, backgroundColor, label, size, labelColor, labelSize } = elem;
 
@@ -137,4 +136,4 @@ class Progress extends Component {
   }
 }
 
-export default define('sk-progress', Progress);
+export default customElements.define('sk-progress', Progress);

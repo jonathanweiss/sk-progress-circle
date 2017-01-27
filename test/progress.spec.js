@@ -19,22 +19,18 @@ describe('sk-progress', () => {
     $target.parentNode.removeChild($target);
   });
 
-  it('is defined', () => {
-    expect(Progress).not.to.equal(undefined);
+  it('can create an HTML element', () => {
+    const createElement = () => (document.createElement('sk-progress'));
+    expect(createElement).to.not.throw(Error);
   });
 
-  it('renders an empty element', (done) => {
+  it('renders an empty element', () => {
     const emptyProgress = document.createElement('sk-progress');
     emptyProgress.id = 'empty';
     $target.appendChild(emptyProgress);
 
-    window.setTimeout(() => {
-      const $emptyProgress = $target.querySelector('#empty');
-
-      expect($emptyProgress.offsetWidth).to.be.above(0);
-      expect($emptyProgress.offsetHeight).to.be.above(0);
-      done();
-    }, ELEMENT_CONSTRUCTION_DELAY);
+    const $emptyProgress = $target.querySelector('#empty');
+    expect($emptyProgress.tagName).to.equal('SK-PROGRESS');
   });
 
   it('renders an big, filled element', (done) => {
@@ -44,6 +40,9 @@ describe('sk-progress', () => {
     bigProgress.size = 400;
     bigProgress.color = 'blue';
     bigProgress.backgroundColor = 'lightgrey';
+
+    // In Safari the component itself doesn't have dimensions (but the <div> of the shadow DOM has) unless we render it as "block"
+    bigProgress.style.display = 'block';
     $target.appendChild(bigProgress);
 
     window.setTimeout(() => {
