@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import 'skatejs-web-components';
-import { emit, prop, define, h, Component } from 'skatejs';
+import { emit, prop, h, Component } from 'skatejs';
 
 import shadowStyles from './shadow.less';
 import { getContainerStyles, getLabelStyles, getBackgroundElementStyles } from './styleHelper';
@@ -126,10 +126,10 @@ class Progress extends Component {
 
     /* eslint-disable react/react-in-jsx-scope */
     return (
-      <div style={getContainerStyles(status, size, color)} className="progress" role="progressbar" aria-valuenow={status} aria-valuemin="0" aria-valuemax="100" aria-live="polite">
+      <div aria-live="polite" aria-valuemax="100" aria-valuemin="0" aria-valuenow={status} className="progress" role="progressbar" style={getContainerStyles(status, size, color)}>
         <style type="text/css">{shadowStyles.toString()}</style>
         <span style={getLabelStyles(labelColor, labelSize, size)}>{Progress.displayLabelContent(status, label)}</span>
-        <div style={getBackgroundElementStyles(size, backgroundColor)} class="bg" />
+        <div class="bg" style={getBackgroundElementStyles(size, backgroundColor)} />
       </div>
     );
     /* eslint-enable react/react-in-jsx-scope */
