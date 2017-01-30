@@ -11,4 +11,4 @@ pipelines:
           - nvm install v6.9.4
           - nvm use v6.9.4
           - npm install
-          - npm test:dev
+          - npm run test:dev
