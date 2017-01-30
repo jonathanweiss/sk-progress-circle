@@ -8,7 +8,6 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          ubuntu 14.04
           - nvm install v6.9.4
           - nvm use v6.9.4
           - npm install
