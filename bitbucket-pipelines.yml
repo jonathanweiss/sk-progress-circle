@@ -3,11 +3,13 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: node-jdk-chrome-firefox
 
 pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
+          ubuntu 14.04
+          - nvm install v6.9.4
+          - nvm use v6.9.4
           - npm install
           - npm test
