@@ -46,7 +46,7 @@ if (args[0] === '-p') {
         { from: dirDev }, // to: output.path
     ]),
     // Avoid publishing files when compilation fails
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ];
   // Create Sourcemaps for the bundle
   devtool = 'source-map';
@@ -62,18 +62,29 @@ module.exports = {
     historyApiFallback: true,
   },
   module: {
-    loaders: [
+    rules: [
       {
-        loader: 'babel-loader',
         test: dirSrc,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
       },
       {
-        loader: 'babel-loader',
         test: dirTest,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
       },
       {
         test: /\.less$/,
-        loader: 'css!less',
+        use: [
+          'css-loader',
+          'less-loader',
+        ],
       },
     ],
   },
