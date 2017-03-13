@@ -44,7 +44,7 @@
     "skatejs-web-components": "^5.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.22.1",
+    "babel-core": "^6.24.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-incremental-dom": "^3.4.0",
     "babel-plugin-istanbul": "^3.1.2",
