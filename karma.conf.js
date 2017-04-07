@@ -19,16 +19,6 @@ if (isCI && !process.env.SAUCE_USERNAME) {
 // Remove default entry point since we're using test-main.js instead
 delete webpackConfiguration.entry;
 
-// instrument only testing sources with Istanbul
-webpackConfiguration.module.rules.push({
-  test: /\.js$/,
-  include: path.resolve('src/'),
-  loader: 'istanbul-instrumenter-loader',
-  query: {
-    esModules: true,
-  },
-});
-
 module.exports = function (config) {
   // Karma configuration
   let configuration = {
