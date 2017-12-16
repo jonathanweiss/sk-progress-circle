@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.22.0",
-    "skatejs": "^4.6.5",
+    "skatejs": "^5.1.0",
     "skatejs-web-components": "^5.2.1"
   },
   "devDependencies": {
