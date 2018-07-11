@@ -89,7 +89,7 @@
     "nyc": "^11.0.1",
     "pre-commit": "^1.2.2",
     "safari-launcher": "^2.0.5",
-    "semantic-release": "^6.3.6",
+    "semantic-release": "^15.7.1",
     "style-loader": "^0.18.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
