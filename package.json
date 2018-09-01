@@ -53,7 +53,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.0",
-    "babel-loader": "^7.0.0",
+    "babel-loader": "^8.0.1",
     "babel-plugin-incremental-dom": "^3.4.0",
     "babel-plugin-istanbul": "^4.1.1",
     "babel-plugin-transform-react-jsx": "^6.22.0",
